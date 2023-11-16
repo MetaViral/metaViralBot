@@ -28,7 +28,6 @@ function RecipeGenerator() {
   const [cookingTimeError, setCookingTimeError] = useState("");
 
   const apiKey = process.env.REACT_APP_OPENAI_API_KEY; // Replace with your OpenAI API key
-  // const apiKey = "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";
   const handleMealTypeChange = (e) => {
     const { value, checked } = e.target;
     if (checked) {
