@@ -12,6 +12,7 @@ import { Toaster } from 'react-hot-toast';
 import ResetPassword from "./Components/ResetPassword/ResetPassword"
 import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
 import Terms from "./Components/terms/terms";
+import RecipeGenerator from "./Components/Recipe/Recipe";
 
 function App() {
  
@@ -30,6 +31,7 @@ function App() {
         <Route path='/forgotpassword' element={<ForgotPassword />} />
         <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/terms' element={<Terms />} />
+        <Route path='/recipe' element={<RecipeGenerator />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
 

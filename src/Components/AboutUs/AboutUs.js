@@ -19,12 +19,12 @@ const AboutUs = () => {
             </p>
             <div class="btn_wrapper">
               <a href="/chatbot">
-              <button class="btn view_more_btn">
+              <button class="btn btn-outline-primary">
                 Chatbot
               </button>
               </a>
               <a href="/emailGenerator">
-              <button class="btn documentation_btn">Email Generator</button>
+              <button class="btn btn-primary">Email Generator</button>
               </a>
             </div>
           </div>
