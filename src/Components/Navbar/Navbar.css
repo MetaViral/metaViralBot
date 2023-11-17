@@ -78,7 +78,7 @@ body {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 880px) {
   .menu-icon {
     display: block;
     cursor: pointer;

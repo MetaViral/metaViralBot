@@ -53,7 +53,8 @@ const Email = () => {
         .then((response) => response.json())
         .then((data) => {
           setLoading(false);
-          document.getElementById("myTextarea").value = data.choices[0].message.content;
+          document.getElementById("myTextarea").value =
+            data.choices[0].message.content;
         })
         .catch((error) => {
           setLoading(false);
@@ -74,7 +75,7 @@ const Email = () => {
   return (
     <main class="container mt-4 mb-4">
       <h2>MetaViral Email Generator</h2>
-      <div class="chat-input">
+      <div class="">
         <input
           type="text"
           ref={inputSubjectRef}
@@ -91,7 +92,11 @@ const Email = () => {
           required
         />
 
-        <button disabled={loading} class="btn btn-success mt-2 mb-2" onClick={handleSend}>
+        <button
+          disabled={loading}
+          class="btn btn-success mt-2 mb-2"
+          onClick={handleSend}
+        >
           {/* <button class="btn" onClick={handleSend}> */}
           Generate
         </button>

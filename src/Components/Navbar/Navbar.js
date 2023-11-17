@@ -41,11 +41,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="container nav-container">
-        <div className="logo">
           <div className="logo" style={{ cursor: "pointer" }}>
             <img src={Logo} alt="" width="36px" height="36px" />
             <h2>MetaViral Bot</h2>
-          </div>
         </div>
 
         <div className="menu-icon" onClick={handleShowNavbar}>
