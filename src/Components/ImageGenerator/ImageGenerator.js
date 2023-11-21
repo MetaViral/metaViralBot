@@ -8,44 +8,29 @@ const ImageGenerator = () => {
   const [generatedImages, setGeneratedImages] = useState([]);
 
   const generateImages = async () => {
+    const apiUrl = 'https://api.openai.com/v1/images/generations';
+  
+    const requestData = {
+      model: 'dall-e-3',
+      prompt: 'a white siamese cat',
+      n: 1,
+      size: '1024x1024',
+    };
+  
     try {
-      const apiKey = process.env.REACT_APP_OPENAI_API_KEY; // Replace with your OpenAI API key
-
-      const response = await fetch(
-        `https://web-production-a38e1.up.railway.app/https://api.openai.com/v1/images/generations`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${apiKey}`,
-          },
-          data: JSON.stringify({
-            model: "dall-e-3",
-            prompt: prompt,
-            n: numImages,
-            size: imageSize,
-            // Add any additional parameters or data you may need
-          }),
-        }
-      );
-
-      console.log(response)
-
-      if (response.ok) {
-        const result = await response.json();
-        setGeneratedImages(result.generatedImages);
-      } else {
-        console.error(
-          "Failed to generate images:",
-          response.status,
-          response.statusText
-        );
-      }
+      const response = await axios.post(apiUrl, requestData, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${OPENAI_API_KEY}`,
+        },
+      });
+  
+      console.log('Generated Images:', response.data);
     } catch (error) {
-      console.error("Error:", error.message);
+      console.error('Error:', error.response ? error.response.data : error.message);
     }
   };
-
+  
   return (
     <div className="dalle-container">
       <h1>DALL·E Image Generator</h1>
