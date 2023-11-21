@@ -12,7 +12,7 @@ const ImageGenerator = () => {
       const apiKey = process.env.REACT_APP_OPENAI_API_KEY; // Replace with your OpenAI API key
 
       const response = await fetch(
-        `https://api.openai.com/v1/images/generations`,
+        `https://web-production-a38e1.up.railway.app/https://api.openai.com/v1/images/generations`,
         {
           method: "POST",
           headers: {
