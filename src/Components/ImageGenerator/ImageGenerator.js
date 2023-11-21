@@ -12,9 +12,9 @@ const ImageGenerator = () => {
   
     const requestData = {
       model: 'dall-e-3',
-      prompt: 'a white siamese cat',
-      n: 1,
-      size: '1024x1024',
+      prompt: prompt,
+      n: numImages,
+      size: imageSize,
     };
   
     try {
