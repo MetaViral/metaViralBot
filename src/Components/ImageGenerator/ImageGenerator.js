@@ -21,7 +21,7 @@ const ImageGenerator = () => {
       const response = await axios.post(apiUrl, requestData, {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${OPENAI_API_KEY}`,
+          'Authorization': `Bearer ${OPENAI_API_KEY}`,
         },
       });
   
@@ -33,7 +33,7 @@ const ImageGenerator = () => {
   
   return (
     <div className="dalle-container">
-      <h1>DALL·E Image Generator</h1>
+      <h1>DALL·E Image Generato</h1>
       <div className="form-group">
         <label htmlFor="prompt">Image Prompt:</label>
         <textarea
