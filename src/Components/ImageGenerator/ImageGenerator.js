@@ -84,4 +84,5 @@ const ImageGenerator = () => {
   );
 };
 
+
 export default ImageGenerator;
