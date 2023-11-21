@@ -3,37 +3,49 @@ import "./ImageGenerator.css"; // Import your CSS file for styling
 
 const ImageGenerator = () => {
   const [prompt, setPrompt] = useState("");
-  const [numImages, setNumImages] = useState(1);
-  const [imageSize, setImageSize] = useState("256x256");
   const [generatedImages, setGeneratedImages] = useState([]);
+  const [isGenerating, setIsGenerating] = useState(false); // Track generation state
+  const apiKey = process.env.REACT_APP_OPENAI_API_KEY; // Replace with your OpenAI API key
 
   const generateImages = async () => {
-    const apiUrl = 'https://api.openai.com/v1/images/generations';
-  
-    const requestData = {
-      model: 'dall-e-3',
-      prompt: prompt,
-      n: numImages,
-      size: imageSize,
-    };
-  
+    setIsGenerating(true);
+    const apiUrl = "https://api.openai.com/v1/images/generations";
+
     try {
-      const response = await axios.post(apiUrl, requestData, {
+      const response = await fetch(apiUrl, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${OPENAI_API_KEY}`,
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`, // Replace with your OpenAI API key
         },
+        body: JSON.stringify({
+          model: "dall-e-3",
+          prompt: prompt,
+          n: 1,
+          size: "1024x1024",
+        }),
       });
-  
-      console.log('Generated Images:', response.data);
+
+      console.log(response);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const responseData = await response.json();
+      console.log("Generated Images:", responseData);
+
+      setGeneratedImages(responseData.data.map((image) => image.url));
     } catch (error) {
-      console.error('Error:', error.response ? error.response.data : error.message);
+      console.error("Error:", error.message);
+    } finally {
+      setIsGenerating(false); // Reset the flag regardless of success or failure
     }
   };
-  
+
   return (
     <div className="dalle-container">
-      <h1>DALL·E Image Generato</h1>
+      <h2>DALL·E Image Generator</h2>
       <div className="form-group">
         <label htmlFor="prompt">Image Prompt:</label>
         <textarea
@@ -44,36 +56,8 @@ const ImageGenerator = () => {
           onChange={(e) => setPrompt(e.target.value)}
         />
       </div>
-      <div className="form-group">
-        <label htmlFor="numImages">Number of Images to Generate:</label>
-        <select
-          id="numImages"
-          value={numImages}
-          onChange={(e) => setNumImages(Number(e.target.value))}
-        >
-          {[1, 2, 3].map((num) => (
-            <option key={num} value={num}>
-              {num}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="form-group">
-        <label htmlFor="imageSize">Image Size:</label>
-        <select
-          id="imageSize"
-          value={imageSize}
-          onChange={(e) => setImageSize(e.target.value)}
-        >
-          {["256x256", "512x512", "1024x1024"].map((size) => (
-            <option key={size} value={size}>
-              {size}
-            </option>
-          ))}
-        </select>
-      </div>
       <button className="generate-btn" onClick={generateImages}>
-        Generate Images
+        {isGenerating ? "Generating..." : "Generate Image"}
       </button>
       <div className="generated-images">
         {generatedImages.map((image, index) => (
@@ -83,6 +67,5 @@ const ImageGenerator = () => {
     </div>
   );
 };
-
 
 export default ImageGenerator;
