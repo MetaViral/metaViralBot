@@ -41,9 +41,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="container nav-container">
-          <div className="logo" style={{ cursor: "pointer" }}>
-            <img src={Logo} alt="" width="36px" height="36px" />
-            <h2>MetaViral Bot</h2>
+        <div className="logo" style={{ cursor: "pointer" }}>
+          <img src={Logo} alt="" width="36px" height="36px" />
+          <h2>MetaViral Bot</h2>
         </div>
 
         <div className="menu-icon" onClick={handleShowNavbar}>
@@ -56,18 +56,11 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
-
-            {user?.uid ? (
-              <li>
+            <li>
                 <NavLink onClick={() => setShowNavbar(false)} to="/chatbot">
                   Chatbot
                 </NavLink>
               </li>
-            ) : (
-              ""
-            )}
-
-            {user?.uid ? (
               <li>
                 <NavLink
                   onClick={() => setShowNavbar(false)}
@@ -76,19 +69,39 @@ const Navbar = () => {
                   Email generator
                 </NavLink>
               </li>
-            ) : (
-              ""
-            )}
-
-            {user?.uid ? (
               <li>
                 <NavLink onClick={() => setShowNavbar(false)} to="/recipe">
                   Recipe
                 </NavLink>
               </li>
+              <li>
+                <NavLink onClick={() => setShowNavbar(false)} to="/dalle">
+                  Dall-e
+                </NavLink>
+              </li>
+            {/* {user?.uid ? (
+         
+            ) : (
+              ""
+            )} */}
+
+            {/* {user?.uid ? (
+          
             ) : (
               ""
             )}
+
+            {user?.uid ? (
+ 
+            ) : (
+              ""
+            )}
+
+            {user?.uid ? (
+          
+            ) : (
+              ""
+            )} */}
 
             <li>
               {user?.uid ? (

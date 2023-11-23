@@ -63,15 +63,15 @@ const Email = () => {
     }
   };
 
-  const navigate = useNavigate();
-  const auth = getAuth(app);
-  useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
-      if (!user) {
-        navigate("/login");
-      }
-    });
-  }, []);
+  // const navigate = useNavigate();
+  // const auth = getAuth(app);
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, async (user) => {
+  //     if (!user) {
+  //       navigate("/login");
+  //     }
+  //   });
+  // }, []);
   return (
     <main class="container mt-4 mb-4">
       <h2>MetaViral Email Generator</h2>

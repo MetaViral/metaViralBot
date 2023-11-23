@@ -1,9 +1,11 @@
 .recipe input[type="radio"] {
   -webkit-appearance: none !important;
+  border: none !important;
 }
 
 .recipe input[type="checkbox"] {
   -webkit-appearance: none !important;
+  border: none !important;
 }
 
 *,

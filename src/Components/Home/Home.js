@@ -68,15 +68,15 @@ const Home = () => {
     return <p className="message-text">{value}</p>;
   };
 
-  const navigate = useNavigate();
-  const auth = getAuth(app);
-  useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
-      if (!user) {
-        navigate("/login");
-      }
-    });
-  }, []);
+  // const navigate = useNavigate();
+  // const auth = getAuth(app);
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, async (user) => {
+  //     if (!user) {
+  //       navigate("/login");
+  //     }
+  //   });
+  // }, []);
   return (
     <main class="container main-chatbot-container">
       <div class="chatbot-container">
