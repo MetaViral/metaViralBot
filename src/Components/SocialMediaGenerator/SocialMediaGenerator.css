@@ -1,0 +1,35 @@
+.twitter-btn {
+  border: 1px solid #03a9f4 !important;
+  background: white;
+  color: #03a9f4;
+}
+
+.twitter-btn:hover{
+    border: 1px solid #03a9f4 !important;
+    background: white;
+    color: #03a9f4;
+}
+
+
+.nav-link {
+  background: none;
+  border-radius: 0px !important;
+}
+
+
+.nav-link.active {
+  /* background: none !important; */
+  background: none !important;
+  color: black !important;
+  border-bottom: 2px solid blue !important;
+}
+
+.tab-content {
+  margin: 1rem;
+}
+
+.img-logo {
+  margin-left: 0.5rem;
+  width: 24px;
+  height: 24px;
+}

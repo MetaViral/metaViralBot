@@ -14,6 +14,7 @@ import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
 import Terms from "./Components/terms/terms";
 import RecipeGenerator from "./Components/Recipe/Recipe";
 import ImageGenerator from "./Components/ImageGenerator/ImageGenerator";
+import SocialMediaGenerator from "./Components/SocialMediaGenerator/SocialMediaGenerator";
 
 function App() {
  
@@ -34,6 +35,7 @@ function App() {
         <Route path='/terms' element={<Terms />} />
         <Route path='/recipe' element={<RecipeGenerator />} />
         <Route path='/dalle' element={<ImageGenerator />} />
+        <Route path='/socialMediaGenerator' element={<SocialMediaGenerator />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
 

@@ -79,6 +79,11 @@ const Navbar = () => {
                   Dall-e
                 </NavLink>
               </li>
+              <li>
+                <NavLink onClick={() => setShowNavbar(false)} to="/socialMediaGenerator">
+                  Social Media
+                </NavLink>
+              </li>
             {/* {user?.uid ? (
          
             ) : (
